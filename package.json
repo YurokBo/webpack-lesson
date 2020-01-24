@@ -1,10 +1,10 @@
 {
-  "name": "webpack",
+  "name": "webpack-lesson",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/YurokBo/webpack/issues"
   },
-  "homepage": "https://github.com/YurokBo/webpack#readme"
+  "homepage": "https://github.com/YurokBo/webpack#readme",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
 }
