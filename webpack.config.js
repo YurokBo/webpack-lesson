@@ -21,8 +21,8 @@ const conf = {
             {
                 test: /\.scss$/i,
                 use: [
-                    "style-loader",
                     MiniCssExtractPlugin.loader,
+                    "style-loader",
                     {
                         loader: 'css-loader',
                         options: {sourceMap: true}
@@ -41,14 +41,14 @@ const conf = {
                 test: /\.css$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: {sourceMap: true}
                     },
                     {
                         loader: 'postcss-loader',
-                        options: {sourceMap: true, config: {path: 'src/js/postcss.config.js'}}
+                        options: {sourceMap: true, config: {path: './js/postcss.config.js'}}
                     }],
             }
         ]
