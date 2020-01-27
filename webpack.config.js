@@ -19,10 +19,14 @@ const conf = {
                 exclude: "/node_modules/"
             },
             {
-                test: /\.scss$/i,
+                test: /\.(sa|sc|c)ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    "style-loader",
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    /*{
+                        loader: "style-loader"
+                    }*//*,*/
                     {
                         loader: 'css-loader',
                         options: {sourceMap: true}
@@ -37,26 +41,15 @@ const conf = {
                     }
                 ],
             },
-            {
-                test: /\.css$/i,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {sourceMap: true}
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {sourceMap: true, config: {path: './js/postcss.config.js'}}
-                    }],
-            }
+
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: "[name].css"
-        })],
+        new MiniCssExtractPlugin(/*{
+            filename: '[name].css',
+            /!*chunkFilename: '[id].css',*!/
+        }*/)
+    ],
 };
 
 module.exports = (env, options) => {
