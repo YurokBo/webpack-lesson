@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+
 const conf = {
     entry: './src/index.js',
     output: {
@@ -19,14 +20,18 @@ const conf = {
                 exclude: "/node_modules/"
             },
             {
-                test: /\.(sa|sc|c)ss$/,
+                test: /\.(sa|sc|c)ss$/i,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: process.env.NODE_ENV === 'development'
+                        }
                     },
                     /*{
-                        loader: "style-loader"
-                    }*//*,*/
+                        loader: "style-loader",
+                        options: { injectType: 'styleTag' }
+                    },*/
                     {
                         loader: 'css-loader',
                         options: {sourceMap: true}
@@ -45,10 +50,10 @@ const conf = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin(/*{
+        new MiniCssExtractPlugin({
             filename: '[name].css',
-            /!*chunkFilename: '[id].css',*!/
-        }*/)
+            chunkFilename: '[id].css',
+        })
     ],
 };
 

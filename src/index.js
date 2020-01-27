@@ -8,4 +8,4 @@ some(3, 4);
 
 /*import 'bootstrap/dist/css/bootstrap.min.css';*/
 import './css/style.css';
-import './scss/main.scss'
+import './scss/main.scss';
